@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Health Tracker</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Lato|Roboto|Ubuntu" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+  <main class="container">
+    <nav id="navbar" class="navbar sticky"> 
+      <ul id="menu" class="menu">
+        <li id="home"><a href="#">Home</a></li>
+        <li id="foodBank"><a href="#">Bank</a></li>
+        <li id="go_manual"><a href="#">Add food</a></li>
+        <li id="cal_record"><a href="#">History</a></li>
+        <li id="contact_us"><a href="#">Contact</a></li>
+      </ul>
+    </nav>    
+
+    <header>
+       <h1 class="inline">foods</h1>
+       <p class="inline hdr_p">
+         <span id="date"></span><span id="clock"></span>
+       </p>
+    </header>
+
+    <section id="search_internet" class="section">
+      <hr>
+      <article id="user_input" class="">
+        <header>
+          <h2>
+            Search the internet
+          </h2>
+        </header>        
+        <input id="query" placeholder="What do you want to eat" autofocus>
+        <button id="query_btn" class="" type="button">Go</button>
+      </article>
+    </section>
+
+    <section id="choiceFood" class="section hide">
+      <article>
+        <hr>
+        <header>
+          <h2 class="inline">Select Food</h2>
+           <button id="clear_choiceFood" class="inline red_font" type="button">Clear</button>
+        </header>
+
+        <p id="my_choice">
+          <span id="foodName" class="name"></span>
+          <span id="foodCal" class="cal"></span>
+          <span class="red_font"> 
+        </p>
+        <!--
+        <ul id="my_choice">
+          <li><span id="foodName" class="name"></span></li>
+          <li><span id="foodCal" class="cal"></span><span class="red_font"> cal</span></li>
+        </ul>
+        -->
+        
+        <button id="save_food" class="" type="button">Save</button>
+        <span id="qty"> Or Quantity:</span> 
+        <input id="serving" class="serving" type="number" min="1" value="1">
+        <button id="save_nd_eat_food" class="" type="button">Save & Eat</button>
+        
+        <hr>
+      </article>
+    </section>
+
+    <section id="api_data_list" class="hide">
+      <article>        
+        <hr>
+        <header>
+           <h2 class="inline">Search result</h2>
+           <button id="clear_api_result" class="inline red_font" type="button">Clear</button>
+        </header>
+
+        <ul id="api_data" class=""></ul>
+        <hr>
+      </article>      
+    </section>
+
+    <section id="add_food_manually" class="section hide">
+      <article id="food_not_on_internet" class="">
+        <hr>
+        <h2>Manually add your food</h2>
+        <p>
+          Use this method if your food is not yet listed on the internet and you know the calories.          
+        </p>
+
+        <input id="add_foodname" placeholder="Enter food name">
+        <input id="add_calories" placeholder="calories">
+        <button id="add_food_manually_btn" class="" type="button">Go</button>
+        <hr>
+      </article>
+    </section>
+    
+    <section id="dailySummary" class="section">
+      <hr>
+      <article>
+        <header>
+          <h2>Daily Summary</h2>          
+        </header>
+        
+        <section id="edit_dailySummary" class="hide">
+          <hr class="red_line">
+          <p class="red_font bold">Delete this item?</p>
+          <p id="delete_from_daily_list" class=""></p>
+          <button id="delete_food" class="red_font" type="button">Delete</button>
+          <button id="dont_delete_food" class="" type="button">Cancel</button>
+          <hr class="red_line">
+        </section>
+
+        <p class="dailySummary_p">
+          If you do not consume a food listed here, click on the food to delete.
+        </p>       
+
+        <section>
+          <hr class="tiny_hr">
+          <ul id="daily_list" class=""></ul>
+          <p class="total bold">Total: <span id="sum_day_cal" class="red_font">0</span><span class="red_font"> cal</span></p>          
+        </section>
+        <hr>
+      </article>
+    </section>
+
+    <section id="records" class="section hide">
+      <article>
+        <header>
+          <h2>My calorie history</h2>
+        </header>        
+        <ul id="cal_history" class=""></ul>
+      </article>      
+    </section>
+   
+    <section id="food_bank" class="section hide">
+      <header>
+        <h2>Food bank</h2>
+      </header>
+      <article>
+        <ol>These are your saved foods. You can either: 
+          <li>Click on your choice food</li>
+          <li>Or if the list is long, use the search field below</li>
+          <li>If no result, click home to search the internet</li>
+          <li>If no result from the internet, manually add your food</li>
+        </ol>
+        <input id="query_bank" placeholder="Enter food name">
+        <hr>
+        <ul id="bank_list"></ul>
+        <hr>
+      </article>
+    </section>
+
+    <section id='contact_msg' class="section hide">
+      <header>
+        <h2>Contact us</h2>
+      </header>
+      <article id="robo_checker">
+        <p>First, confirm you are not a robot</p>
+        <p class="inline">Please copy: &nbsp; &nbsp;</p>
+        <p id="robo_test" class="inline bold"></p>
+        <p class="inline">&nbsp; here &nbsp;</p>
+        <input id="robo_answer" class="robo_answer bold">
+        <button id="robo_btn" class="inline" type="button">Go</button>
+        <!--
+        <p>First, confirm you are not a robo
+        Please copy &nbsp; <span id="robo_test" class="robo_test"></span> &nbsp; here &nbsp; &nbsp;<input id="robo_answer" class="robo_answer"> &nbsp;
+          <button id="robo_btn" class="" type="button">Go</button>
+        </p>
+      -->
+      </article>
+
+      <article id='contact_form' class=" hide">        
+        <p>Please enter your comment below. Special characters are now allowed. Maximum message length is 450.</p>
+
+        <textarea id='message' rows="5" cols="50" required placeholder='Type your message here *' maxlength='450'></textarea><br>
+        <span id='message_alarm' class='red_alarm'></span><br>
+        <button id="submit_msg" class="" type="button">Submit</button>
+      </article>      
+    </section>
+
+    <footer id="footer" class="glow">Remain healthy. Eat healthily</footer>
+  </main>  
+
+	<script src="js/lib/jquery-3.2.1.min.js"></script>
+  <script src="js/lib/underscore.js"></script>
+  <script src="js/lib/backbone.js"></script>  
+  <script src="js/lib/backbone.localStorage.js"></script>
+  <script src="js/lib/backbone-collection-search.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
